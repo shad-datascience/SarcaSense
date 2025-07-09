@@ -1,0 +1,10 @@
+torch
+tensorflow
+numpy
+pandas
+nltk
+re
+vaderSentiment
+transformers
+scikit-learn
+streamlit
