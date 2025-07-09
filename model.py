@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import string
 import re
-# from ast import literal_eval
 import nltk
 from nltk.corpus import stopwords
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as VS
@@ -11,7 +10,9 @@ from transformers import AutoModel, AutoTokenizer
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import Pipeline,FeatureUnion
-import keras
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import Pipeline
+
 
 # from sentence_transformers import SentenceTransformer
 
@@ -25,7 +26,7 @@ def removePunctuation(text):
     return text.translate(str.maketrans('','',exclude))
 
 
-file_Path = './stop_hinglish.txt'
+file_Path = '/src/stop_hinglish.txt'
 
 # Download NLTK stop words (if not already downloaded)
 nltk.download("stopwords")
@@ -37,7 +38,7 @@ def load_stop_words(file_path):
     return stop_words
 
 
-hinglish_stop_words = load_stop_words("./stop_hinglish.txt")
+hinglish_stop_words = load_stop_words("./src/stop_hinglish.txt")
 
 # Load English stop words from NLTK
 english_stop_words = set(stopwords.words("english"))
@@ -190,14 +191,6 @@ pipeline1 = Pipeline([
     ('expand', ExpandNDArrayTransformer())
 ])
 
-import re
-import nltk
-import pandas as pd
-import numpy as np
-from transformers import BertTokenizer
-from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.pipeline import Pipeline
-
 
 class PreprocessingTransformer(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
@@ -242,7 +235,8 @@ feature_pipeline = FeatureUnion([
     ("pipeline2", pipeline2)
 ])
 
-# res = feature_pipeline.transform("Hello!! Darling what are you doing!!")
+res = feature_pipeline.transform("Hello!! Darling what are you doing!!")
+print(res)
 
 # model = keras.models.load_model("./mlp_model.keras")
 

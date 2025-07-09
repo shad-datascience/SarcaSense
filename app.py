@@ -8,7 +8,7 @@ st.write("Enter a code-mixed hinglish sentence to check if it's sarcastic.")
 
 text_input = st.text_input("Input Text:")
 
-classifier = keras.models.load_model('./mlp_model.keras')
+classifier = keras.models.load_model('./src/mlp_model.keras')
 
 if st.button("Predict"):
     if text_input:
