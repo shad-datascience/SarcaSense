@@ -235,8 +235,9 @@ feature_pipeline = FeatureUnion([
     ("pipeline2", pipeline2)
 ])
 
-res = feature_pipeline.transform("Hello!! Darling what are you doing!!")
-print(res)
+#uncomment for debugging
+# res = feature_pipeline.transform("Hello!! Darling what are you doing!!")
+# print(res)
 
 # model = keras.models.load_model("./mlp_model.keras")
 
