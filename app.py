@@ -378,5 +378,5 @@ with st.sidebar:
     - Transformers
     - Numpy
     - Pandas
-    - Scikit-learn
+    - NLTK
     """)
